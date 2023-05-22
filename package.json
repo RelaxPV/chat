@@ -1,7 +1,6 @@
 {
   "name": "chat",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -17,6 +16,7 @@
   },
   "dependencies": {
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "@google-cloud/text-to-speech": "^4.2.2",
     "ai": "^1.1.0",
     "axios": "^1.4.0",
     "config": "^3.3.9",
@@ -26,5 +26,6 @@
     "open": "^9.1.0",
     "openai": "^3.2.1",
     "telegraf": "^4.12.2"
-  }
+  },
+  "description": ""
 }
