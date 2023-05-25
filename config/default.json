@@ -1,0 +1,6 @@
+{
+    "TELEGRAM_TOKEN": "6233233496:AAH5pngZMiwYAoR3dsd3WFTblXiITV57l9E",
+    "OPENAI_KEY": "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",
+    "GOOGLE_API_KEY": "AIzaSyCN8rDZnyHfbcEacGH_drMicOVIeWCIHDo",
+    "TEST_ENV": "prod"
+  }

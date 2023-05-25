@@ -2,10 +2,6 @@ import axios from 'axios';
 import fs from 'fs';
 import config from 'config';
 
-function detectLanguage(text) {
-  return /[а-яА-ЯЁё]/.test(text) ? 'ru' : 'en';
-}
-
 async function convertTextToAudio(text, language) {
   const url = `https://texttospeech.googleapis.com/v1/text:synthesize?key=${config.get('GOOGLE_API_KEY')}`;
 
@@ -18,17 +14,17 @@ async function convertTextToAudio(text, language) {
     voice: voice,
     audioConfig: {
       audioEncoding: 'MP3',
-      speakingRate: 1.0,
+      speakingRate: 1.0, // Adjust the speaking rate as needed (1.0 is normal speed)
     },
   };
 
   try {
     const response = await axios.post(url, data);
     const audioContent = response.data.audioContent;
-    const filePath = `audio/${Date.now()}.mp3`;
+    const filePath = `audio/${Date.now()}.mp3`; // Changed to keep file names unique and location consistent
     fs.writeFileSync(filePath, Buffer.from(audioContent, 'base64'));
     console.log('Audio file successfully created:', filePath);
-    return filePath;
+    return filePath; // This is important, as you use the returned path in the handlers.js
   } catch (error) {
     console.log('Error creating audio file:', error.message);
   }
@@ -51,4 +47,4 @@ function getVoice(language) {
   return voices[language];
 }
 
-export { detectLanguage, convertTextToAudio };
+export { convertTextToAudio };
